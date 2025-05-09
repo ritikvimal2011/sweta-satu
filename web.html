@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sewa Setu</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-white shadow-md">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-indigo-600">Sewa Setu</h1>
+      <nav class="space-x-6">
+        <a href="#" class="text-gray-700 hover:text-indigo-600">Home</a>
+        <a href="#" class="text-gray-700 hover:text-indigo-600">Services</a>
+        <a href="#" class="text-gray-700 hover:text-indigo-600">AboutUs</a>
+        <a href="#" onclick="showForm('signupForm')" class="text-gray-700 hover:text-indigo-600">Registration</a>
+        <a href="#" onclick="showForm('loginForm')" class="text-gray-700 hover:text-indigo-600">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Registration Form -->
+  <div id="signupForm" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-96 relative">
+      <h2 class="text-xl font-bold mb-4">Register</h2>
+      <form onsubmit="return validateSignup()">
+        <input type="text" id="signupName" placeholder="Full Name" class="w-full mb-3 p-2 border rounded" required>
+        <input type="email" id="signupEmail" placeholder="Email" class="w-full mb-3 p-2 border rounded" required>
+        <input type="password" id="signupPassword" placeholder="Password" class="w-full mb-3 p-2 border rounded" required>
+        <input type="tel" id="signupPhone" placeholder="Phone Number" class="w-full mb-3 p-2 border rounded" required>
+        <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded w-full">Sign Up</button>
+        <p class="text-sm mt-2 text-center">Already registered? <a href="#" class="text-indigo-600" onclick="switchForm('loginForm')">Login here</a></p>
+      </form>
+      <button onclick="hideForms()" class="absolute top-2 right-2 text-gray-500">&times;</button>
+    </div>
+  </div>
+
+  <!-- Login Form -->
+  <div id="loginForm" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-96 relative">
+      <h2 class="text-xl font-bold mb-4">Login</h2>
+      <form onsubmit="return validateLogin()">
+        <input type="email" id="loginEmail" placeholder="Email" class="w-full mb-3 p-2 border rounded" required>
+        <input type="password" id="loginPassword" placeholder="Password" class="w-full mb-3 p-2 border rounded" required>
+        <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded w-full">Login</button>
+        <p class="text-sm mt-2 text-center">Not registered? <a href="#" class="text-indigo-600" onclick="switchForm('signupForm')">Sign up</a></p>
+      </form>
+      <button onclick="hideForms()" class="absolute top-2 right-2 text-gray-500">&times;</button>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="bg-indigo-50 py-16">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-4">Find Trusted Local Service Providers</h2>
+      <p class="text-gray-600 mb-6">Electricians, plumbers, masons & more – just a click away!</p>
+      <input type="text" placeholder="Search for services..." class="w-full max-w-md px-4 py-2 border rounded-lg shadow-sm" />
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section class="py-12">
+    <div class="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+      <div class="bg-white p-4 rounded-lg shadow hover:shadow-lg">
+        <img src="https://img.icons8.com/ios-filled/50/electricity.png" class="mx-auto mb-2" />
+        <p>Electrician</p>
+      </div>
+      <div class="bg-white p-4 rounded-lg shadow hover:shadow-lg">
+        <img src="https://img.icons8.com/ios-filled/50/plumbing.png" class="mx-auto mb-2" />
+        <p>Plumber</p>
+      </div>
+      <div class="bg-white p-4 rounded-lg shadow hover:shadow-lg">
+        <img src="https://img.icons8.com/ios-filled/50/brick-wall.png" class="mx-auto mb-2" />
+        <p>Mason</p>
+      </div>
+      <div class="bg-white p-4 rounded-lg shadow hover:shadow-lg">
+        <img src="https://img.icons8.com/ios-filled/50/toolbox.png" class="mx-auto mb-2" />
+        <p>More...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Providers -->
+  <section class="py-12 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <h3 class="text-2xl font-semibold mb-6">Top Rated Providers</h3>
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div class="bg-gray-50 p-4 rounded-lg shadow">
+          <h4 class="font-bold text-lg">Rakesh Sharma</h4>
+          <p class="text-sm text-gray-600">Electrician – Agra</p>
+          <p class="text-yellow-500 mt-2">★★★★★</p>
+          <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded">Contact</button>
+        </div>
+        <div class="bg-gray-50 p-4 rounded-lg shadow">
+          <h4 class="font-bold text-lg">Sunil Kumar</h4>
+          <p class="text-sm text-gray-600">Plumber – Agra</p>
+          <p class="text-yellow-500 mt-2">★★★★☆</p>
+          <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded">Contact</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-6 mt-12">
+    <div class="max-w-6xl mx-auto text-center">
+      <p>&copy; 2025 Sewa Setu. All rights reserved.</p>
+      <p class="text-sm mt-2">Made with ❤️ in India</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    function showForm(id) {
+      hideForms();
+      document.getElementById(id).classList.remove("hidden");
+    }
+    function hideForms() {
+      document.getElementById('signupForm').classList.add("hidden");
+      document.getElementById('loginForm').classList.add("hidden");
+    }
+    function switchForm(id) {
+      hideForms();
+      showForm(id);
+    }
+
+    function validateSignup() {
+      const name = document.getElementById("signupName").value;
+      const email = document.getElementById("signupEmail").value;
+      const password = document.getElementById("signupPassword").value;
+      const phone = document.getElementById("signupPhone").value;
+
+      if (!name || !email || !password || !phone) {
+        alert("All fields are required!");
+        return false;
+      }
+      alert("Signup successful!");
+      hideForms();
+      return false; // prevent real submission
+    }
+
+    function validateLogin() {
+      const email = document.getElementById("loginEmail").value;
+      const password = document.getElementById("loginPassword").value;
+
+      if (!email || !password) {
+        alert("All fields are required!");
+        return false;
+      }
+      alert("Login successful!");
+      hideForms();
+      return false; // prevent real submission
+    }
+  </script>
+</body>
+</html>

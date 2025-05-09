@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Services - Sewa Setu</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+    .service-card {
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: #6164ea;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Navigation Header -->
+  <header class="bg-white shadow-md">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-indigo-600">Sewa Setu</h1>
+      <nav class="space-x-6">
+        <a href="index.html" class="text-gray-700 hover:text-indigo-600">Home</a>
+        <a href="service.html" class="text-gray-700 hover:text-indigo-600 font-semibold">Services</a>
+        <a href="about.html" class="text-gray-700 hover:text-indigo-600">About Us</a>
+        <a href="signup.html" class="text-gray-700 hover:text-indigo-600">Registration</a>
+        <a href="login.html" class="text-gray-700 hover:text-indigo-600">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Services Section -->
+  <div class="container max-w-6xl mx-auto px-4 py-10">
+    <h2 class="text-3xl text-indigo-600 font-semibold text-center mb-8">Available Services</h2>
+    <div class="service-grid">
+      <div class="service-card">
+        <h3 class="text-lg font-bold mb-2">Electrician</h3>
+        <p>Get expert help with wiring, appliances, and electrical repairs.</p>
+        <!-- <a href="#" class="btn">Request</a> -->
+        <a href="javascript:void(0);" onclick="showElectricians()" class="btn">Request</a>
+
+      </div>
+      <div class="service-card">
+        <h3 class="text-lg font-bold mb-2">Plumber</h3>
+        <p>Fix leaking pipes, taps, bathroom fittings, and more.</p>
+        <a href="#" class="btn">Request</a>
+      </div>
+      <div class="service-card">
+        <h3 class="text-lg font-bold mb-2">Carpenter</h3>
+        <p>Furniture repair, installation, and custom woodwork.</p>
+        <a href="#" class="btn">Request</a>
+      </div>
+      <div class="service-card">
+        <h3 class="text-lg font-bold mb-2">Mason</h3>
+        <p>Hire skilled masons for construction and repair jobs.</p>
+        <a href="#" class="btn">Request</a>
+      </div>
+      <div class="service-card">
+        <h3 class="text-lg font-bold mb-2">AC Mechanic</h3>
+        <p>AC installation, servicing, and gas refilling at home.</p>
+        <a href="#" class="btn">Request</a>
+      </div>
+      <div class="service-card">
+        <h3 class="text-lg font-bold mb-2">House Cleaning</h3>
+        <p>Deep cleaning for homes, kitchens, and bathrooms.</p>
+        <a href="#" class="btn">Request</a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Electrician List (Initially Hidden) -->
+<div id="electricianList" class="max-w-5xl mx-auto px-4 py-6 hidden">
+    <h3 class="text-2xl text-indigo-600 font-semibold mb-6 text-center">Available Electricians</h3>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Block 1 -->
+      <div class="bg-white p-4 rounded-lg shadow-md flex gap-4">
+        <img src="https://via.placeholder.com/100" alt="Electrician 1" class="rounded-full w-24 h-24 object-cover">
+        <div>
+          <h4 class="text-lg font-bold">Ravi Kumar</h4>
+          <p><strong>Address:</strong> Kamla Nagar, Agra</p>
+          <p><strong>Mobile:</strong> 9876543210</p>
+          <p><strong>Availability:</strong> <span class="text-green-600">Available</span></p>
+          <p><strong>ETA:</strong> 10 minutes</p>
+          <p><strong>Charges:</strong> ₹200</p>
+          <button class="mt-2 px-3 py-1 bg-indigo-600 text-white rounded hover:bg-indigo-700">Enquiry</button>
+          <!-- <button class="mt-2 px-3 py-1 bg-indigo-600 text-white rounded hover:bg-indigo-700">Book Nows</button> -->
+          <button id="bookNowBtn" data-amount="500" data-worker-id="123" class="mt-2 px-3 py-1 bg-indigo-600 text-white rounded hover:bg-indigo-700">Book Now</button>
+
+        </div>
+      </div>
+  
+      <!-- Block 2 -->
+      <div class="bg-white p-4 rounded-lg shadow-md flex gap-4">
+        <img src="https://via.placeholder.com/100" alt="Electrician 2" class="rounded-full w-24 h-24 object-cover">
+        <div>
+          <h4 class="text-lg font-bold">Sunil Verma</h4>
+          <p><strong>Address:</strong> Dayalbagh, Agra</p>
+          <p><strong>Mobile:</strong> 9876501234</p>
+          <p><strong>Availability:</strong> <span class="text-red-600">Not Available</span></p>
+          <p><strong>ETA:</strong> 30 minutes</p>
+          <p><strong>Charges:</strong> ₹250</p>
+          <button class="mt-2 px-3 py-1 bg-indigo-600 text-white rounded hover:bg-indigo-700">Enquiry</button>
+          <button class="mt-2 px-3 py-1 bg-indigo-600 text-white rounded hover:bg-indigo-700">Book Nows</button>
+
+        </div>
+      </div>
+  
+      <!-- Block 3 -->
+      <div class="bg-white p-4 rounded-lg shadow-md flex gap-4">
+        <img src="https://via.placeholder.com/100" alt="Electrician 3" class="rounded-full w-24 h-24 object-cover">
+        <div>
+          <h4 class="text-lg font-bold">Amit Sharma</h4>
+          <p><strong>Address:</strong> Sanjay Place, Agra</p>
+          <p><strong>Mobile:</strong> 9811122233</p>
+          <p><strong>Availability:</strong> <span class="text-green-600">Available</span></p>
+          <p><strong>ETA:</strong> 20 minutes</p>
+          <p><strong>Charges:</strong> ₹300</p>
+          <button class="mt-2 px-3 py-1 bg-indigo-600 text-white rounded hover:bg-indigo-700">Enquiry</button>
+          <button class="mt-2 px-3 py-1 bg-indigo-600 text-white rounded hover:bg-indigo-700">Book Nows</button>
+
+        </div>
+      </div>
+  
+      <!-- Block 4 -->
+      <div class="bg-white p-4 rounded-lg shadow-md flex gap-4">
+        <img src="https://via.placeholder.com/100" alt="Electrician 4" class="rounded-full w-24 h-24 object-cover">
+        <div>
+          <h4 class="text-lg font-bold">Deepak Singh</h4>
+          <p><strong>Address:</strong> Shahganj, Agra</p>
+          <p><strong>Mobile:</strong> 9911009988</p>
+          <p><strong>Availability:</strong> <span class="text-green-600">Available</span></p>
+          <p><strong>ETA:</strong> 15 minutes</p>
+          <p><strong>Charges:</strong> ₹180</p>
+          <button class="mt-2 px-3 py-1 bg-indigo-600 text-white rounded hover:bg-indigo-700">Enquiry</button>
+          <button class="mt-2 px-3 py-1 bg-indigo-600 text-white rounded hover:bg-indigo-700">Book Nows</button>
+
+        </div>
+      </div>
+  
+      <!-- Block 5 -->
+      <div class="bg-white p-4 rounded-lg shadow-md flex gap-4">
+        <img src="https://via.placeholder.com/100" alt="Electrician 5" class="rounded-full w-24 h-24 object-cover">
+        <div>
+          <h4 class="text-lg font-bold">Rajeev Chauhan</h4>
+          <p><strong>Address:</strong> Lohamandi, Agra</p>
+          <p><strong>Mobile:</strong> 9765432100</p>
+          <p><strong>Availability:</strong> <span class="text-red-600">Not Available</span></p>
+          <p><strong>ETA:</strong> 25 minutes</p>
+          <p><strong>Charges:</strong> ₹220</p>
+          <button class="mt-2 px-3 py-1 bg-indigo-600 text-white rounded hover:bg-indigo-700">Enquiry</button>
+          <button class="mt-2 px-3 py-1 bg-indigo-600 text-white rounded hover:bg-indigo-700">Book Nows</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-6 mt-12">
+    <div class="max-w-6xl mx-auto text-center">
+      <p>&copy; 2025 Sewa Setu. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+<script>
+    function showElectricians() {
+    document.getElementById("electricianList").classList.remove("hidden");
+    // Scroll to the list
+    document.getElementById("electricianList").scrollIntoView({ behavior: 'smooth' });
+  }
+  
+</script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="service.js"></script>
+
+</html>
